@@ -446,13 +446,6 @@ namespace Renamer
                     return;
                 }
                 Logger.Instance.LogMessage("Response URL: " + responseHtml.ResponseUri.AbsoluteUri, LogLevel.DEBUG);
-                //if we get redirected, lets assume this page does not exist
-                if (responseHtml.ResponseUri.AbsoluteUri != url) {
-                    Logger.Instance.LogMessage("Response URL doesn't match request URL, page doesn't seem to exist", LogLevel.DEBUG);
-                    responseHtml.Close();
-                    requestHtml.Abort();
-                    break;
-                }
                 // and download
                 //Logger.Instance.LogMessage("charset=" + responseHtml.CharacterSet, LogLevel.INFO);
                 Encoding enc;
